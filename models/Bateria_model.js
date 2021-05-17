@@ -18,6 +18,6 @@ const Bateria = db.sequelize.define('bateria',{
 Surfista.hasMany(Bateria,{foreignKey: 'Surfista1', sourceKey: 'numero'});
 Surfista.hasMany(Bateria,{foreignKey: 'Surfista2', sourceKey: 'numero'});
 
-//Bateria.sync({force:true})
+
 
 module.exports= Bateria

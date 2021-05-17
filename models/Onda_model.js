@@ -23,6 +23,5 @@ const Onda = db.sequelize.define('onda',{
 Surfista.hasMany(Onda,{foreignKey: 'Surfista', sourceKey: 'numero'})
 Bateria.hasMany(Onda,{foreignKey: 'Bateria', sourceKey: 'bateriaID'})
 
-//Onda.sync({force:true})
 
 module.exports=Onda

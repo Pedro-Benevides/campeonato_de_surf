@@ -18,5 +18,4 @@ const Surfista=db.sequelize.define('surfista',{
     }
 })
 
-//Surfista.sync({force:true})
 module.exports=Surfista

@@ -6,6 +6,8 @@ const path = require('path')
 const session = require('express-session')
 const flash = require('connect-flash')
 const app = express()
+const db = require('./database/db')
+db.sequelize.sync();
 
 //Configs
 

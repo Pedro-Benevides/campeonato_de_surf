@@ -59,7 +59,7 @@ router.post('/filtro', async function (req, res) {
 		busca.push({ msg: 'Digite o país para fazer a busca' })
 	}
 
-	if (await Surfista.findOne({ where: { país: req.body.país } }) == null) {
+	if (req.body.país && await Surfista.findOne({ where: { país: req.body.país } }) == null) {
 		busca.push({ msg: 'Nenhum surfista desse país foi registrado' })
 	}
 

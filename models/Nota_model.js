@@ -22,6 +22,6 @@ const Nota = db.sequelize.define('nota',{
 })
 
 Onda.hasMany(Nota,{foreignKey: 'ID_onda', sourceKey: 'ondaID'})
-//Nota.sync({force:true})
+
 
 module.exports=Nota
