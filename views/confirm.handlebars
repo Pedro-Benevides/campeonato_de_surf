@@ -1,0 +1,26 @@
+
+<h1>Surfistas que vão competir a onda:</h1>
+{{#with surf1}}
+<div class="card mt-2 mb-2">
+    <div class="card-body">
+        <h3>{{dataValues.nome}}</h3>
+        <p>{{dataValues.país}}</p>
+        <br>
+    </div>
+</div>
+{{/with}}
+
+{{#with surf2}}
+<div class="card mt-2 mb-2">
+    <div class="card-body">
+        <h3>{{dataValues.nome}}</h3>
+        <p>{{dataValues.país}}</p>
+        <br>
+    </div>
+</div>
+{{/with}}
+
+<a href="/surfista/participantes"><button class="btn btn-primary"> Voltar </button></a>
+{{#with disputa}}
+<a href="/onda/disputa/{{dataValues.bateriaID}}"><button class="btn btn-primary">Confirmar</button></a>
+{{/with}}

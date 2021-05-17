@@ -1,0 +1,30 @@
+<h1>Bem vindo ao Campeonato de Surf !</h1>
+<!-- Cadastro -->
+<div class="card">
+    <div class="card-body">
+        <h3 class="card-title">Participe desse desafio</h3>
+        <a href="/surfista/cadastro"><button type="button" class="btn btn-primary mb-2 mt-1">Registrar
+                competidor</button></a>
+        <!-- Verificar todos surfistas -->
+        <h3 class="card-title mt-2">Veja quais competidores ja entraram nessa onda</h3>
+        <a href="/surfista/participantes"><button type="button" class="btn btn-primary mb-2 mt-1">Ver todos os
+                competidores</button></a>
+
+        <!-- Verificar surfistas filtrando pelo país -->
+        <form method="POST" class="row g-3">
+            <div class="col-auto mb-2">
+                <label for="país" class="visually-hidden">Filtrar competidores por país</label>
+                <input type="text" name="país" class="form-control mt-2" placeholder="Filtrar por país">
+            </div>
+            <div class="col-auto">
+                <button type="submit" formaction="/surfista/filtro" class="btn btn-primary mt-2">Buscar</button>
+            </div>
+        </form>
+    </div>
+</div>
+<br>
+{{#each busca}}
+<div class="alert alert-danger">{{msg}}</div>
+{{else}}
+
+{{/each}}

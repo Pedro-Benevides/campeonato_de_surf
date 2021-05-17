@@ -1,0 +1,128 @@
+<!--Interação Js para bloquear entrada de notas após a confirmação -->
+<script>
+  function readOnlyHalf() {
+    var r = document.getElementsByTagName("input")
+    var i;
+    for (i = 0; i < r.length/2; i++) {
+      r[i].readOnly = true;
+    }
+  }
+</script>
+
+<script>
+  function readOnlyOtherHalf() {
+    var r = document.getElementsByTagName("input")
+    var i;
+    for (i = r.length / 2; i < r.length; i++) {
+      r[i].readOnly = true;
+    }
+  }
+</script>
+
+
+<h1>Surfistas que estão competindo a onda:</h1>
+<!--campo para o 1 surfista -->
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card mt-2">
+      <div class="card-body">
+        {{#with surf1}}
+        <h3 class="card-title">{{dataValues.nome}}</h3>
+        <p class="card-text">{{dataValues.país}}</p>
+        {{/with}}
+        <form action="/nota/parciais/surf1" method="POST">
+          {{#with compet1}}<input type="number" name="ID_onda1" value="{{dataValues.ondaID}}" readonly
+            class="visually-hidden">{{/with}}
+          <div class="col-auto">
+            <h5 class="card-title">Notas: </h5>
+          </div>
+          <div class="row mt-2">
+            <div class="col-auto">
+              <input class="form-control" type="number" name="notaParcial1" placeholder="Nota parcial 1" required>
+            </div>
+            <div class="col-auto">
+              <button class="visually-hidden"></button>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-auto">
+              <input class="form-control" type="number" name="notaParcial2" placeholder="Nota parcial 2" required>
+            </div>
+            <div class="col-auto">
+              <button type="submit" class="btn btn-primary" onclick="readOnlyHalf()">Confirmar notas</button>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-auto">
+              <input class="form-control" type="number" name="notaParcial3" placeholder="Nota parcial 3" required>
+            </div>
+            <div class="col-auto">
+              <button class="visually-hidden"></button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!---->
+  <!--campo para o 2 surfista -->
+  <div class="col-sm-6">
+    <div class="card mt-2">
+      <div class="card-body">
+        {{#with surf2}}
+        <h3 class="card-title">{{dataValues.nome}}</h3>
+        <p class="card-text">{{dataValues.país}}</p>
+        {{/with}}
+        <form action="/nota/parciais/surf2" method="POST">
+          {{#with compet2}}<input type="number" name="ID_onda2" value="{{dataValues.ondaID}}" readonly
+            class="visually-hidden">{{/with}}
+          <div class="col-auto">
+            <h5 class="card-title">Notas: </h5>
+          </div>
+          <div class="row mt-2">
+            <div class="col-auto">
+              <input class="form-control" type="number" name="notaParcial4" placeholder="Nota parcial 1" required>
+            </div>
+            <div class="col-auto">
+              <button class="visually-hidden"></button>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-auto">
+              <input class="form-control" type="number" name="notaParcial5" placeholder="Nota parcial 2" required>
+            </div>
+            <div class="col-auto ">
+              <button type="submit" class="btn btn-primary" onclick="readOnlyOtherHalf()">Confirmar notas</button>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-auto">
+              <input class="form-control" type="number" name="notaParcial6" placeholder="Nota parcial 3" required>
+            </div>
+            <div class="col-auto">
+              <button class="visually-hidden"></button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!---->
+</div>
+
+<div class="col">
+  <div class="card mt-2">
+    <div class="card-body ">
+      <p class="card-text">Após escrever as notas, confirme para que possa ser feita a simulação.</p>
+      <p class="card-text"> Você pode inserir novas notas pegando outra onda.</p>
+      <p class="card-text">Para ver o vencedor finalize a bateria.</p>
+      <a href="/onda/vencedor/{{#with surf1}}{{dataValues.numero}}{{/with}}/{{#with surf2}}{{dataValues.numero}}{{/with}}/{{#with chave}}{{dataValues.bateriaID}}{{/with}}"><button type="button" class="btn btn-primary">Finalizar bateria</button></a>
+
+      {{#with chave}}
+      <a href="/onda/disputa/{{dataValues.bateriaID}}"><button type="button" class="btn btn-primary">Pegar uma
+          onda</button></a>
+      {{/with}}
+    </div>
+  </div>
+</div>
+</div>

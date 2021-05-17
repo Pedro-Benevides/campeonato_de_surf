@@ -1,0 +1,17 @@
+<h1 class="card-title px-4">Vencedor:</h1>
+<div class="px-4 my-5 text-center">
+    <div class="card mt-3 mb-2 ">
+        <div class="card-body mb-2">
+            {{#with vencedor}}
+            <h2 class="card-title">{{dataValues.nome}}</h2>
+            <p class="lead">{{dataValues.país}}</p>
+            {{/with}}
+
+            {{#with notaFinal}}
+            <h2 class="card-text">Nota final: {{notaF}}</h2>
+            {{/with}}
+            <small class="lead">A nota final consiste na soma das duas maiores médias das notas parciais</small>
+        </div>
+        <img src="/img/trophy.png" class="rounded mx-auto d-block mb-4" alt="trophy">
+    </div>
+</div>

@@ -1,0 +1,50 @@
+{{#each erros}}
+<div class="alert alert-danger">{{msg}}</div>
+{{else}}
+
+{{/each}}
+
+<h2>Surfistas no campeonato:</h2>
+{{#each participantes}}
+<div class="card mt-3 mb-2">
+    <div class="card-body mb-2">
+        <h4>{{dataValues.nome}}</h4>
+        <p>{{dataValues.país}}</p>
+        <p>Número de identificação: {{dataValues.numero}}</p>
+        <!-- Deletar surfistas do cadastro-->
+        <a href="/surfista/cancelamento/{{dataValues.numero}}"><button class="btn btn-primary">Cancelar
+                inscrição</button></a>
+        <!-- Alterar dados do cadastro-->
+        <a href="/surfista/att/{{dataValues.numero}}"><button class="btn btn-primary">Modificar inscrição</button></a>
+    </div>
+</div>
+{{/each}}
+
+<h5>Entenda nosso sistema de notas para saber quem vai vencer! Faça uma simulação</h5>
+<form method="POST" action="/bateria/confirm" class="row g-3">
+    <p class="mb-2">Número de identificação dos surfistas:</p>
+    <div class="col-auto mt-2">
+        <select name="id1" class="form-select ">
+            {{#each participantes}}
+            <option value="{{dataValues.numero}}">{{dataValues.numero}}</option>
+            {{else}}
+            <option value="0">Nenhum surfista registrado</option>
+            {{/each}}
+        </select>
+    </div>
+
+    <div class="col-auto mt-2">
+        <select name="id2" class="form-select ">
+            {{#each participantes}}
+            <option value="{{dataValues.numero}}">{{dataValues.numero}}</option>
+            {{else}}
+            <option value="0">Nenhum surfista registrado</option>
+            {{/each}}
+        </select>
+    </div>
+
+    <div class="col-auto mt-2">
+        <button type="submit" class="btn btn-primary">Iniciar bateria</button>
+    </div>
+</form>
+<br>

@@ -1,0 +1,18 @@
+{{#each erros}}
+    <div class="alert alert-danger">{{msg}}</div>
+{{else}}
+
+{{/each}}
+<h1>Atualização de cadastro:</h1>
+<div class="card">
+    <div class="card-body">
+    <form method="POST">
+    <label for="nome">Nome: </label>
+        <input type="text" id="nome" name="nome"  class="form-control">
+    <label for="país">País: </label>
+        <input type="text" id="país" name="país" class="form-control">
+        <br>
+    <a href="/att/:numero"><button type="submit" class="btn btn-primary">Atualizar</button></a>
+    </form>
+    </div>
+</div>
