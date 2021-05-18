@@ -62,9 +62,9 @@ app.use('/nota', notas_route)
 
 
 //Outros
-const PORT = 3000
+const PORT = precess.env || 3000
 app.listen(PORT, () => {
-	console.log("Servidor rodando na URL http://localhost:3000")
+	console.log("Servidor rodando na porta ${PORT}.")
 })
 
 
