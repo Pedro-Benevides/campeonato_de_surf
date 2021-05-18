@@ -10,8 +10,13 @@ router.post('/parciais/surf1', async function(req, res){
     var parciais = (parseFloat(req.body.notaParcial1) + parseFloat(req.body.notaParcial2) + parseFloat(req.body.notaParcial3)) / 3
     var media = JSON.stringify(parciais)
 
-    await Onda.update({ Nota: media }, { where: { ondaID: req.body.ID_onda1 } })
-
+    await Onda.update({ Nota: media }, { where: { ondaID: req.body.ID_onda1 } }).then(function() {
+        console.log('notas enviadas')
+    }).catch(error => {
+        req.flash("error_msg", "Erro ao iniciar onda, tente novamente")
+        res.redirect('/surfista/participantes')
+    })
+    
 })
 
 router.post('/parciais/surf2', async function (req, res){
@@ -21,6 +26,7 @@ router.post('/parciais/surf2', async function (req, res){
     var media = JSON.stringify(parciais)
     
     await Onda.update({ Nota: media }, { where: { ondaID: req.body.ID_onda2 } })
+    
 })
 
 
