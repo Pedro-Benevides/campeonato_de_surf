@@ -13,7 +13,7 @@ router.get('/disputa/:bateriaID', async function (req, res) {
     var surf1 = await Surfista.findOne({ where: { numero: chave.Surfista1 } })
 
     Surfista.findOne({ where: { numero: chave.Surfista2 } }).then(function (surf2) {
-        res.render('disputa', { surf1: surf1, surf2: surf2, chave: chave, compet1: compet1, compet2: compet2 })
+        res.render('disputa', { surf1: surf1, surf2: surf2, compet1: compet1, compet2: compet2 })
     }).catch(error => {
         req.flash("error_msg", "Erro ao iniciar onda, tente novamente")
         res.redirect('/surfista/participantes')

@@ -19,11 +19,7 @@ router.post('/confirm', async function (req, res) {
 		})
 	}
 	else {
-		await Bateria.create({
-			Surfista1: req.body.id1,
-			Surfista2: req.body.id2
-		})
-		var disputa =  await Bateria.findOne({ where: { Surfista1: req.body.id1, Surfista2: req.body.id2 }})
+		var disputa = await Bateria.create({Surfista1: req.body.id1,Surfista2: req.body.id2})
 		var surf1 = await Surfista.findOne({where: { numero: req.body.id1 }})
 		
 		Surfista.findOne({where: { numero: req.body.id2 }}).then(function(surf2){
